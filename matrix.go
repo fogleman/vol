@@ -152,30 +152,6 @@ func (a Matrix) MulDirection(b Vector) Vector {
 	return Vector{x, y, z}.Normalize()
 }
 
-// func (a Matrix) MulRay(b Ray) Ray {
-// 	return Ray{a.MulPosition(b.Origin), a.MulDirection(b.Direction)}
-// }
-
-// func (a Matrix) MulBox(box Box) Box {
-// 	// http://dev.theomader.com/transform-bounding-boxes/
-// 	r := Vector{a.x00, a.x10, a.x20}
-// 	u := Vector{a.x01, a.x11, a.x21}
-// 	b := Vector{a.x02, a.x12, a.x22}
-// 	t := Vector{a.x03, a.x13, a.x23}
-// 	xa := r.MulScalar(box.Min.X)
-// 	xb := r.MulScalar(box.Max.X)
-// 	ya := u.MulScalar(box.Min.Y)
-// 	yb := u.MulScalar(box.Max.Y)
-// 	za := b.MulScalar(box.Min.Z)
-// 	zb := b.MulScalar(box.Max.Z)
-// 	xa, xb = xa.Min(xb), xa.Max(xb)
-// 	ya, yb = ya.Min(yb), ya.Max(yb)
-// 	za, zb = za.Min(zb), za.Max(zb)
-// 	min := xa.Add(ya).Add(za).Add(t)
-// 	max := xb.Add(yb).Add(zb).Add(t)
-// 	return Box{min, max}
-// }
-
 func (a Matrix) Transpose() Matrix {
 	return Matrix{
 		a.x00, a.x10, a.x20, a.x30,
